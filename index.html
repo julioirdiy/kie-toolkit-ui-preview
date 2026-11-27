@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KIE Toolkit · Pratinjau UI</title>
+  <meta name="description" content="Pratinjau tampilan KIE Toolkit Indonesia Asri Hub.">
+  <link rel="stylesheet" href="assets/css/toolkit.css">
+  <style>
+    .preview-banner{margin:14px 5% 0;padding:10px 14px;border:1px solid #f1c79e;border-radius:9px;background:#fff6ed;color:#70451f;font-size:12px;line-height:1.6}
+    .iah-search button{border:0;background:var(--iah-green);color:white;border-radius:7px;padding:7px 13px;font-weight:700;min-height:38px}
+    .iah-filter{cursor:pointer}.iah-material[hidden]{display:none!important}
+    .preview-dialog{width:min(620px,calc(100% - 28px));max-height:calc(100dvh - 32px);overflow:auto;border:1px solid var(--iah-line);border-radius:18px;padding:28px;background:var(--iah-paper);color:var(--iah-ink)}
+    .preview-dialog::backdrop{background:#142e28a6;backdrop-filter:blur(3px)}
+    .preview-dialog h2{margin:0 38px 9px 0}.preview-dialog p{margin:8px 0;line-height:1.7;color:var(--iah-muted)}
+    .preview-dialog .dialog-close{position:absolute;right:12px;top:8px;font-size:27px;text-decoration:none}
+    .preview-dialog label:not(.check-row){display:block;margin:14px 0 5px;font-weight:600;font-size:13px}
+    .preview-dialog input:not([type=checkbox]),.preview-dialog select{width:100%;min-height:44px;padding:9px 11px;border:1px solid #9cac9f;border-radius:8px;background:white;font:inherit}
+    .preview-dialog .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:10px}
+    .preview-dialog .check-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}
+    .preview-dialog .check-row input{width:18px;height:18px;accent-color:#005952}
+    .preview-dialog .iah-primary{margin-top:17px;width:100%;cursor:pointer}
+    .preview-dialog .small-note{font-size:11px;color:var(--iah-muted);margin-top:12px}
+    .preview-toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:20;max-width:calc(100% - 28px);padding:12px 16px;background:#173f39;color:#fff;border-radius:9px;font-size:13px;box-shadow:0 8px 28px #0003}
+    @media(max-width:600px){.preview-dialog{padding:23px 18px}.preview-dialog .audience-grid{grid-template-columns:1fr}.preview-banner{margin-inline:6%}}
+  </style>
+</head>
+<body id="iah-kie-preview">
+  <a class="skip" href="#main">Lewati ke konten utama</a>
+  <div class="iah-site">
+    <header class="iah-header">
+      <a class="iah-brand" href="#top" aria-label="Katalog KIE Toolkit">
+        <span class="iah-wordmark">indonesia<span>asri hub<span class="iah-dot">.</span></span></span>
+        <span class="iah-brand-divider"></span><span class="iah-toolkit">KIE<br>Toolkit</span>
+      </a>
+      <nav aria-label="Navigasi utama">
+        <a class="iah-nav active" href="#materi" aria-current="page">Materi</a>
+        <a class="iah-nav" href="#cara">Cara menggunakan</a>
+        <a class="iah-nav" href="#tentang">Tentang</a>
+      </nav>
+    </header>
+    <div class="preview-banner"><strong>Pratinjau tampilan.</strong> Ini simulasi UI saja. Form tidak mengirim atau menyimpan data, dan tombol unduh tidak mengambil file.</div>
+    <main id="main" tabindex="-1">
+      <section class="iah-hero" id="top">
+        <div class="iah-hero-copy">
+          <span class="iah-eyebrow"><span></span>PENGETAHUAN UNTUK PERUBAHAN</span>
+          <h1>Materi edukasi untuk<br>langkah <span class="iah-highlight">nyata.</span></h1>
+          <p>Temukan bahan edukasi persampahan untuk belajar,<br class="iah-desktop-break"> berbagi, dan bergerak bersama di lingkungan Anda.</p>
+          <div class="iah-hero-note">Gratis diakses <span>•</span> Tanpa membuat akun</div>
+        </div>
+        <aside class="iah-hero-aside">
+          <span class="iah-aside-label">MULAI DARI YANG DEKAT</span>
+          <div class="iah-topic-list"><span>Di rumah</span><span>Di sekolah</span><span>Di komunitas</span></div>
+          <p>Satu materi.<br>Banyak cara untuk berbagi.</p>
+          <div class="iah-aside-line"></div>
+          <span class="iah-aside-footer">Indonesia Asri Hub / Waste Crisis Center</span>
+        </aside>
+      </section>
+      <section class="iah-library" id="materi" aria-labelledby="library-title">
+        <div class="iah-section-heading">
+          <div><span class="iah-eyebrow">JELAJAHI & BAGIKAN</span><h2 id="library-title">Temukan materi Anda</h2></div>
+          <span class="iah-count" id="count">3 materi ditemukan</span>
+        </div>
+        <form id="search-form" role="search">
+          <div class="iah-search"><input id="search" type="search" maxlength="100" aria-label="Cari topik atau judul materi" placeholder="Cari topik atau judul materi…"><button type="submit">Cari</button></div>
+        </form>
+        <div class="iah-filter-row" aria-label="Filter jenis materi">
+          <button class="iah-filter" type="button" data-filter="all" aria-current="true">Semua materi</button>
+          <button class="iah-filter" type="button" data-filter="modul">Modul</button>
+          <button class="iah-filter" type="button" data-filter="video">Video</button>
+          <button class="iah-filter" type="button" data-filter="poster">Poster</button>
+        </div>
+        <div class="iah-grid" id="catalog-grid">
+          <article class="iah-material" data-type="modul" data-search="modul sampah rumah ibadah pengurus takmir pengelolaan">
+            <a class="iah-preview asset-modul" href="#detail" data-open-detail="rumah-ibadah" aria-label="Lihat detail Modul Sampah Rumah Ibadah"><img src="assets/images/rumah-ibadah.jpg" alt="Sampul materi Sampah Rumah Ibadah"></a>
+            <div class="iah-material-body"><div class="iah-material-meta"><span class="iah-category">Modul</span><span>PDF · 3,6 MB</span></div><h3><a href="#detail" data-open-detail="rumah-ibadah">Modul Sampah Rumah Ibadah</a></h3><p>Panduan praktis untuk membantu pengurus rumah ibadah mengelola sampah dan mengajak jamaah ikut bergerak.</p><div class="iah-card-bottom"><span>Pengurus rumah ibadah</span><a class="iah-detail-link" href="#detail" data-open-detail="rumah-ibadah">Lihat materi ↗</a></div></div>
+          </article>
+          <article class="iah-material" data-type="modul" data-search="si pilah keluarga memilah sampah rumah">
+            <a class="iah-preview asset-modul" href="#detail" data-open-detail="si-pilah" aria-label="Lihat detail Si Pilah"><img src="assets/images/si-pilah.jpg" alt="Pratinjau materi Si Pilah"></a>
+            <div class="iah-material-body"><div class="iah-material-meta"><span class="iah-category">Modul</span><span>PDF · 2,4 MB</span></div><h3><a href="#detail" data-open-detail="si-pilah">Si Pilah: Mulai dari Rumah</a></h3><p>Materi pengenalan pemilahan sampah yang ringan untuk digunakan bersama keluarga dan komunitas.</p><div class="iah-card-bottom"><span>Keluarga dan komunitas</span><a class="iah-detail-link" href="#detail" data-open-detail="si-pilah">Lihat materi ↗</a></div></div>
+          </article>
+          <article class="iah-material" data-type="poster" data-search="stop bakar sampah sembarangan poster lingkungan">
+            <a class="iah-preview asset-banner" href="#detail" data-open-detail="stop-bakar" aria-label="Lihat detail Stop Bakar Sampah Sembarangan"><img src="assets/images/stop-bakar.jpg" alt="Poster Stop Bakar Sampah Sembarangan"></a>
+            <div class="iah-material-body"><div class="iah-material-meta"><span class="iah-category">Poster</span><span>JPG · 1,2 MB</span></div><h3><a href="#detail" data-open-detail="stop-bakar">Stop Bakar Sampah Sembarangan</a></h3><p>Poster edukasi untuk mengingatkan warga tentang dampak pembakaran sampah dan pilihan yang lebih baik.</p><div class="iah-card-bottom"><span>Masyarakat umum</span><a class="iah-detail-link" href="#detail" data-open-detail="stop-bakar">Lihat materi ↗</a></div></div>
+          </article>
+        </div>
+        <aside class="iah-support" id="cara"><div><h3>Siap berbagi pengetahuan?</h3><p>Pilih materi, lengkapi profil singkat, lalu ceritakan rencana penggunaannya.</p></div><a class="iah-support-link" href="#cara-menggunakan">Cara menggunakan →</a></aside>
+        <section class="iah-demo-flow" id="cara-menggunakan"><span class="iah-eyebrow">ALUR PENGGUNAAN</span><h2>Temukan, pilih, lalu bagikan</h2><p>Jelajahi katalog, buka materi yang dibutuhkan, lalu isi profil singkat saat pertama kali menggunakan. Untuk setiap materi, sampaikan rencana penggunaan dan sasaran audiens sebelum mengunduh.</p></section>
+      </section>
+    </main>
+    <footer class="iah-footer" id="tentang"><div><strong>KIE Toolkit</strong><span>Indonesia Asri Hub · Waste Crisis Center</span><a href="#privasi" id="privacy-link">Privasi & penggunaan data</a></div><img src="assets/images/klh-logo.png" alt="Kementerian Lingkungan Hidup / Badan Pengendalian Lingkungan Hidup" width="160" height="82"></footer>
+  </div>
+
+  <dialog class="preview-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <a href="#close" class="dialog-close" data-close-dialog aria-label="Tutup">×</a>
+    <span class="iah-eyebrow">DETAIL MATERI</span><h2 id="detail-title">Materi</h2><p id="detail-description"></p>
+    <div class="visitor-bar">Format: <strong id="detail-format"></strong><br>Sasaran: <strong id="detail-audience"></strong></div>
+    <button class="iah-primary" type="button" id="download-button">Simulasikan unduh materi</button>
+    <p class="small-note">Tombol ini hanya menunjukkan alur. File tidak diunduh.</p>
+  </dialog>
+
+  <dialog class="preview-dialog" id="profile-dialog" aria-labelledby="profile-title">
+    <a href="#close" class="dialog-close" data-close-dialog aria-label="Tutup">×</a>
+    <span class="iah-eyebrow">SEBELUM MENGAKSES MATERI</span><h2 id="profile-title">Kenalan singkat, yuk</h2>
+    <p>Isi contoh saja untuk melihat tampilan formulir. Informasi tidak dikirim atau disimpan.</p>
+    <form id="profile-form">
+      <label for="demo-name">Nama</label><input id="demo-name" name="name" autocomplete="off" placeholder="Nama Anda" required>
+      <label for="demo-email">Email</label><input id="demo-email" name="email" type="email" autocomplete="off" placeholder="nama@contoh.id" required>
+      <label for="demo-category">Kategori pengguna</label><select id="demo-category" required><option value="">Pilih kategori</option><option>Individu</option><option>Instansi / organisasi</option><option>Pendidik</option><option>Lainnya</option></select>
+      <button class="iah-primary" type="submit">Lanjut</button>
+    </form>
+  </dialog>
+
+  <dialog class="preview-dialog" id="usage-dialog" aria-labelledby="usage-title">
+    <a href="#close" class="dialog-close" data-close-dialog aria-label="Tutup">×</a>
+    <span class="iah-eyebrow">SATU PERTANYAAN RINGAN</span><h2 id="usage-title">Rencananya materi ini dipakai untuk apa?</h2>
+    <form id="usage-form">
+      <label for="purpose">Rencana penggunaan</label><select id="purpose" required><option value="">Pilih rencana</option><option>Sosialisasi atau edukasi</option><option>Bahan belajar</option><option>Kegiatan komunitas</option><option>Lainnya</option></select>
+      <fieldset><legend>Sasaran audiens</legend><div class="audience-grid"><label class="check-row"><input type="checkbox" name="audience" value="keluarga">Keluarga</label><label class="check-row"><input type="checkbox" name="audience" value="siswa">Siswa / mahasiswa</label><label class="check-row"><input type="checkbox" name="audience" value="komunitas">Komunitas</label><label class="check-row"><input type="checkbox" name="audience" value="masyarakat">Masyarakat umum</label></div></fieldset>
+      <button class="iah-primary" type="submit">Selesai simulasi</button>
+    </form><p class="small-note">Jawaban hanya untuk demonstrasi; tidak dikirim atau disimpan.</p>
+  </dialog>
+  <div class="preview-toast" id="toast" role="status" hidden></div>
+
+  <script src="assets/js/preview.js" defer></script>
+</body>
+</html>
